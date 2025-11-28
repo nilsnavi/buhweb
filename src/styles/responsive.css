@@ -1,0 +1,419 @@
+/* Responsive Styles */
+
+/* Large Desktop */
+@media (min-width: 1200px) {
+  .container {
+    padding: 0 2rem;
+  }
+
+  .hero-content {
+    max-width: 800px;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .reviews-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .certificates-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Desktop */
+@media (max-width: 1199px) and (min-width: 992px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pricing-card.featured {
+    transform: scale(1.02);
+  }
+}
+
+/* Tablet */
+@media (max-width: 991px) and (min-width: 769px) {
+  .section {
+    padding: 5rem 0;
+  }
+
+  .hero {
+    padding: 120px 0 80px;
+    min-height: 80vh;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .reviews-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pricing-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pricing-card.featured {
+    transform: scale(1);
+  }
+
+  .certificates-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .calculator-form {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+/* Mobile Large */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .section {
+    padding: 4rem 0;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  /* Header */
+  .nav {
+    display: none;
+  }
+
+  .menu-button {
+    display: block;
+  }
+
+  .header-content {
+    padding: 0.75rem 0;
+  }
+
+  /* Hero */
+  .hero {
+    padding: 100px 0 60px;
+    min-height: 70vh;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.125rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  /* Grids */
+  .services-grid,
+  .features-grid,
+  .reviews-grid,
+  .pricing-grid,
+  .certificates-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .calculator-form {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .calculator {
+    padding: 1.5rem;
+  }
+
+  /* Cards */
+  .service-card,
+  .review-card,
+  .pricing-card,
+  .certificate-card {
+    padding: 1.5rem;
+  }
+
+  .pricing-card.featured {
+    transform: scale(1);
+    margin: 0;
+  }
+
+  /* FAQ */
+  .faq-question {
+    padding: 1rem;
+    font-size: 1rem;
+  }
+
+  .faq-answer {
+    padding: 0 1rem;
+  }
+
+  .faq-answer.active {
+    padding: 1rem;
+  }
+
+  /* Footer */
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer {
+    padding: 3rem 0 1.5rem;
+  }
+
+  /* Floating Buttons */
+  .floating-buttons {
+    bottom: 20px;
+    right: 15px;
+  }
+
+  .floating-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 1.25rem;
+  }
+
+  /* Popup */
+  .popup {
+    padding: 2rem;
+    width: 95%;
+  }
+
+  .popup-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .popup-title {
+    font-size: 1.25rem;
+  }
+}
+
+/* Mobile Medium */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 0.75rem;
+  }
+
+  .section {
+    padding: 3rem 0;
+  }
+
+  .hero {
+    padding: 90px 0 50px;
+  }
+
+  .hero-title {
+    font-size: 1.75rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .service-card,
+  .review-card,
+  .pricing-card {
+    padding: 1.25rem;
+  }
+
+  .calculator {
+    padding: 1.25rem;
+  }
+
+  .calculator-result {
+    padding: 1.5rem;
+    font-size: 1.25rem;
+  }
+
+  .feature-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+  }
+
+  .review-avatar {
+    width: 50px;
+    height: 50px;
+    font-size: 1rem;
+  }
+
+  .pricing-price {
+    font-size: 2rem;
+  }
+
+  .floating-buttons {
+    bottom: 15px;
+    right: 10px;
+    gap: 8px;
+  }
+
+  .floating-btn {
+    width: 45px;
+    height: 45px;
+    font-size: 1.125rem;
+  }
+
+  .popup {
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+  }
+
+  .certificates-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .certificate-card {
+    padding: 1rem;
+  }
+
+  .certificate-icon {
+    font-size: 2.5rem;
+  }
+}
+
+/* Mobile Small */
+@media (max-width: 360px) {
+  .hero-title {
+    font-size: 1.5rem;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+  }
+
+  .btn {
+    padding: 0.875rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .service-card,
+  .review-card,
+  .pricing-card {
+    padding: 1rem;
+  }
+
+  .calculator {
+    padding: 1rem;
+  }
+
+  .popup {
+    padding: 1.25rem;
+    width: 98%;
+  }
+
+  .footer-section h4 {
+    font-size: 1.125rem;
+  }
+}
+
+/* Landscape orientation on mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero {
+    min-height: auto;
+    padding: 80px 0 40px;
+  }
+
+  .section {
+    padding: 2rem 0;
+  }
+
+  .floating-buttons {
+    bottom: 10px;
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .service-icon,
+  .feature-icon,
+  .certificate-icon {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .scroll-animate {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* High contrast preference */
+@media (prefers-contrast: high) {
+  :root {
+    --color-border: #000000;
+    --color-text-secondary: #333333;
+  }
+
+  .btn-outline {
+    border-width: 2px;
+  }
+
+  .service-card,
+  .review-card,
+  .pricing-card {
+    border-width: 2px;
+  }
+}
