@@ -14,7 +14,7 @@ const Hero = () => {
             </p>
             <div className="hero-features">
               <div className="feature-item">✓ Опыт более 5 лет</div>
-              <div className="feature-item">✓ Более 200 довольных клиентов</div>
+              <div className="feature-item">✓ Более 20 довольных клиентов</div>
               <div className="feature-item">✓ Гарантия качества</div>
             </div>
             <div className="hero-buttons">
