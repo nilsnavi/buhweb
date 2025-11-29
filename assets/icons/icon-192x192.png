@@ -1,0 +1,12 @@
+<svg width="192" height="192" viewBox="0 0 192 192" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="192" height="192" rx="24" fill="#2563eb"/>
+  <path d="M48 64h96v64H48V64z" fill="white" fill-opacity="0.2"/>
+  <rect x="56" y="72" width="80" height="48" rx="4" fill="white"/>
+  <rect x="64" y="80" width="16" height="4" fill="#2563eb"/>
+  <rect x="64" y="88" width="24" height="4" fill="#2563eb"/>
+  <rect x="64" y="96" width="20" height="4" fill="#2563eb"/>
+  <rect x="64" y="104" width="32" height="4" fill="#2563eb"/>
+  <circle cx="120" cy="92" r="12" fill="#10b981"/>
+  <text x="96" y="150" font-family="Arial" font-size="16" fill="white" text-anchor="middle">Бухучет</text>
+  <text x="96" y="166" font-family="Arial" font-size="12" fill="white" text-anchor="middle" opacity="0.8">Онлайн</text>
+</svg>
