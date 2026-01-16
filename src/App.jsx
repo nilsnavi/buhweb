@@ -1,42 +1,20 @@
 import React from 'react'
-import { BrowserRouter as Router } from 'react-router-dom'
-import Header from './components/Header.jsx'
-import Hero from './components/Hero.jsx'
-import Services from './components/Services.jsx'
-import Features from './components/Features.jsx'
-import Calculator from './components/Calculator.jsx'
-import Pricing from './components/Pricing.jsx'
-import Reviews from './components/Reviews.jsx'
-import FAQ from './components/FAQ.jsx'
-import Contact from './components/Contact.jsx'
-import Footer from './components/Footer.jsx'
-import PWAInstaller from './components/PWAInstaller.jsx'
-import FloatingButtons from './components/FloatingButtons.jsx'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import { NotificationProvider } from './components/NotificationSystem.jsx'
 import { AnalyticsProvider } from './components/Analytics.jsx'
+import LandingPage from './pages/LandingPage.jsx'
+import AdminDashboard from './pages/AdminDashboard.jsx'
 
 function App() {
   return (
     <Router>
       <AnalyticsProvider>
         <NotificationProvider>
-          <div className="App">
-            <Header />
-            <main>
-              <Hero />
-              <Services />
-              <Features />
-              <Calculator />
-              <Pricing />
-              <Reviews />
-              <FAQ />
-              <Contact />
-            </main>
-            <Footer />
-
-            <PWAInstaller />
-            <FloatingButtons />
-          </div>
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/admin" element={<AdminDashboard />} />
+            <Route path="*" element={<LandingPage />} />
+          </Routes>
         </NotificationProvider>
       </AnalyticsProvider>
     </Router>

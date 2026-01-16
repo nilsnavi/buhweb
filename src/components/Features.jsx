@@ -6,6 +6,9 @@ const Features = () => {
     <section id="features" className="features">
       <div className="container">
         <h2 className="section-title">Почему выбирают нас</h2>
+        <p className="section-subtitle">
+          Преимущества работы с нашей компанией
+        </p>
         <div className="features-grid">
           {FEATURES.map((feature) => (
             <div key={feature.id} className="feature-card">

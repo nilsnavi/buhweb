@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { COMPANY_INFO } from '../constants'
 
 const Header = () => {
@@ -6,10 +7,10 @@ const Header = () => {
     <header className="header">
       <div className="container">
         <div className="header-content">
-          <div className="logo">
+          <Link to="/" className="logo" aria-label="Бухучет Онлайн">
             <span className="logo-icon">📊</span>
             <span className="logo-text">{COMPANY_INFO.name}</span>
-          </div>
+          </Link>
           <nav className="nav">
             <a href="#services" className="nav-link">
               Услуги
@@ -26,6 +27,9 @@ const Header = () => {
             <a href="#contact" className="nav-link">
               Контакты
             </a>
+            <Link to="/admin" className="nav-link nav-admin">
+              Админ-панель
+            </Link>
           </nav>
           <div className="header-contact">
             <span className="phone">{COMPANY_INFO.phone}</span>

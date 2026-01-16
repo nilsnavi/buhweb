@@ -24,6 +24,9 @@ const Footer = () => {
               <li>
                 <a href="#services">Кадровый учет</a>
               </li>
+              <li>
+                <a href="#services">Консультации</a>
+              </li>
             </ul>
           </div>
 
@@ -46,7 +49,8 @@ const Footer = () => {
             <h4>Контакты</h4>
             <p>{COMPANY_INFO.phone}</p>
             <p>{COMPANY_INFO.email}</p>
-            <p>{COMPANY_INFO.workingHours}</p>
+            <p>{COMPANY_INFO.supportEmail}</p>
+            <p>{COMPANY_INFO.address}</p>
           </div>
         </div>
 

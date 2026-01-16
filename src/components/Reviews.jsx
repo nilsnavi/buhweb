@@ -6,6 +6,9 @@ const Reviews = () => {
     <section id="reviews" className="reviews">
       <div className="container">
         <h2 className="section-title">Отзывы клиентов</h2>
+        <p className="section-subtitle">
+          Что говорят о нашей работе предприниматели
+        </p>
         <div className="reviews-grid">
           {REVIEWS.map((review) => (
             <div key={review.id} className="review-card">
