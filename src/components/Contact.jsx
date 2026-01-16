@@ -33,7 +33,10 @@ const Contact = () => {
   return (
     <section id="contact" className="contact">
       <div className="container">
-        <h2 className="section-title">Свяжитесь с нами</h2>
+        <h2 className="section-title">Связаться с нами</h2>
+        <p className="section-subtitle">
+          Оставьте заявку и мы свяжемся с вами в ближайшее время
+        </p>
         <div className="contact-content">
           <div className="contact-info">
             <h3>Контактная информация</h3>
@@ -42,6 +45,7 @@ const Contact = () => {
               <div>
                 <strong>Телефон:</strong>
                 <p>{COMPANY_INFO.phone}</p>
+                <p>{COMPANY_INFO.workingHours}</p>
               </div>
             </div>
             <div className="contact-item">
@@ -49,6 +53,7 @@ const Contact = () => {
               <div>
                 <strong>Email:</strong>
                 <p>{COMPANY_INFO.email}</p>
+                <p>{COMPANY_INFO.supportEmail}</p>
               </div>
             </div>
             <div className="contact-item">
@@ -56,13 +61,7 @@ const Contact = () => {
               <div>
                 <strong>Адрес:</strong>
                 <p>{COMPANY_INFO.address}</p>
-              </div>
-            </div>
-            <div className="contact-item">
-              <span className="contact-icon">🕐</span>
-              <div>
-                <strong>Режим работы:</strong>
-                <p>{COMPANY_INFO.workingHours}</p>
+                <p>Онлайн-сервис для всей России</p>
               </div>
             </div>
           </div>

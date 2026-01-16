@@ -15,15 +15,21 @@ const Services = () => {
               <div className="service-icon">{service.icon}</div>
               <h3 className="service-title">{service.title}</h3>
               <p className="service-description">{service.description}</p>
-              <div className="service-price">
-                <span className="price">{service.price}</span>
-                <span className="period">{service.period}</span>
-              </div>
-              <ul className="service-features">
-                {service.features.map((feature, index) => (
-                  <li key={index}>{feature}</li>
-                ))}
-              </ul>
+              {(service.price || service.period) && (
+                <div className="service-price">
+                  {service.price && <span className="price">{service.price}</span>}
+                  {service.period && (
+                    <span className="period">{service.period}</span>
+                  )}
+                </div>
+              )}
+              {service.features && (
+                <ul className="service-features">
+                  {service.features.map((feature, index) => (
+                    <li key={index}>{feature}</li>
+                  ))}
+                </ul>
+              )}
               <button className="btn-primary btn-icon">
                 <span className="icon">🛒</span>
                 Заказать

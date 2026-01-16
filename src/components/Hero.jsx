@@ -1,28 +1,42 @@
 import React from 'react'
-import { COMPANY_INFO } from '../constants'
 
 const Hero = () => {
+  const handleScrollTo = (id) => {
+    const section = document.querySelector(id)
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
   return (
     <section className="hero">
       <div className="container">
         <div className="hero-content">
           <div className="hero-text">
-            <h1 className="hero-title">{COMPANY_INFO.description}</h1>
+            <h1 className="hero-title">
+              Профессиональное бухгалтерское обслуживание онлайн
+            </h1>
             <p className="hero-subtitle">
-              Доверьте нам ведение вашего бизнеса и сосредоточьтесь на развитии.
-              Гарантируем качество и соблюдение всех сроков.
+              Ведение бухучета для ИП и ООО. Экономьте время и деньги с нашим
+              удаленным сервисом бухгалтерского сопровождения.
             </p>
             <div className="hero-features">
-              <div className="feature-item">✓ Опыт более 5 лет</div>
-              <div className="feature-item">✓ Более 20 довольных клиентов</div>
-              <div className="feature-item">✓ Гарантия качества</div>
+              <div className="feature-item">✓ Ответ в течение 24 часов</div>
+              <div className="feature-item">✓ Работаем по всей России</div>
+              <div className="feature-item">✓ От 7 600₽/месяц</div>
             </div>
             <div className="hero-buttons">
-              <button className="btn-primary btn-large">
+              <button
+                className="btn-primary btn-large"
+                onClick={() => handleScrollTo('#contact')}
+              >
                 Получить консультацию
               </button>
-              <button className="btn-secondary btn-large">
-                Рассчитать стоимость
+              <button
+                className="btn-secondary btn-large"
+                onClick={() => handleScrollTo('#pricing')}
+              >
+                Узнать стоимость
               </button>
             </div>
           </div>
