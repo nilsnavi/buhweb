@@ -1,5 +1,7 @@
 import React from 'react'
-import { BrowserRouter as Router } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { Provider } from 'react-redux'
+import { store } from './store/store'
 import Header from './components/Header.jsx'
 import Hero from './components/Hero.jsx'
 import Services from './components/Services.jsx'
@@ -14,32 +16,49 @@ import PWAInstaller from './components/PWAInstaller.jsx'
 import FloatingButtons from './components/FloatingButtons.jsx'
 import { NotificationProvider } from './components/NotificationSystem.jsx'
 import { AnalyticsProvider } from './components/Analytics.jsx'
+import AdminLayout from './admin/AdminLayout.jsx'
+import Dashboard from './admin/Dashboard.jsx'
+import TextManager from './admin/TextManager.jsx'
+import ImageManager from './admin/ImageManager.jsx'
+import BlockManager from './admin/BlockManager.jsx'
+import './styles/admin.css'
 
 function App() {
   return (
-    <Router>
-      <AnalyticsProvider>
-        <NotificationProvider>
-          <div className="App">
-            <Header />
-            <main>
-              <Hero />
-              <Services />
-              <Features />
-              <Calculator />
-              <Pricing />
-              <Reviews />
-              <FAQ />
-              <Contact />
-            </main>
-            <Footer />
-
-            <PWAInstaller />
-            <FloatingButtons />
-          </div>
-        </NotificationProvider>
-      </AnalyticsProvider>
-    </Router>
+    <Provider store={store}>
+      <Router>
+        <Routes>
+          {/* Админ-панель */}
+          <Route path="/admin/*" element={
+            <AdminLayout />
+          } />
+          
+          {/* Основной сайт */}
+          <Route path="/*" element={
+            <AnalyticsProvider>
+              <NotificationProvider>
+                <div className="App">
+                  <Header />
+                  <main>
+                    <Hero />
+                    <Services />
+                    <Features />
+                    <Calculator />
+                    <Pricing />
+                    <Reviews />
+                    <FAQ />
+                    <Contact />
+                  </main>
+                  <Footer />
+                  <PWAInstaller />
+                  <FloatingButtons />
+                </div>
+              </NotificationProvider>
+            </AnalyticsProvider>
+          } />
+        </Routes>
+      </Router>
+    </Provider>
   )
 }
 

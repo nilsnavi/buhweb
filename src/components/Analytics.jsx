@@ -25,8 +25,8 @@ export const AnalyticsProvider = ({ children }) => {
 
     // Сохранить в localStorage
     const events = JSON.parse(localStorage.getItem('analytics_events') || '[]')
-    events.push(event)
-    localStorage.setItem('analytics_events', JSON.stringify(events))
+    const updatedEvents = [...events, event].slice(-200)
+    localStorage.setItem('analytics_events', JSON.stringify(updatedEvents))
 
     console.log('Analytics Event:', event)
   }
