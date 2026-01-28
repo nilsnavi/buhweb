@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
-import { Link, useLocation, Routes, Route } from 'react-router-dom';
+import { Link, useLocation, Outlet } from 'react-router-dom';
 import { useAppSelector } from '../store/store';
-import Dashboard from './Dashboard.jsx';
-import TextManager from './TextManager.jsx';
-import ImageManager from './ImageManager.jsx';
-import BlockManager from './BlockManager.jsx';
 
 const AdminLayout = () => {
   const location = useLocation();
@@ -92,12 +88,7 @@ const AdminLayout = () => {
         </header>
 
         <div className="admin-content">
-          <Routes>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/texts" element={<TextManager />} />
-            <Route path="/images" element={<ImageManager />} />
-            <Route path="/blocks" element={<BlockManager />} />
-          </Routes>
+          <Outlet />
         </div>
       </main>
     </div>

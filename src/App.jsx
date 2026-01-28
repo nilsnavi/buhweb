@@ -29,9 +29,12 @@ function App() {
       <Router>
         <Routes>
           {/* Админ-панель */}
-          <Route path="/admin/*" element={
-            <AdminLayout />
-          } />
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route index element={<Dashboard />} />
+            <Route path="texts" element={<TextManager />} />
+            <Route path="images" element={<ImageManager />} />
+            <Route path="blocks" element={<BlockManager />} />
+          </Route>
           
           {/* Основной сайт */}
           <Route path="/*" element={

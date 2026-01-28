@@ -1,5 +1,31 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+// Загрузка данных из localStorage
+const loadFromStorage = () => {
+  try {
+    const stored = localStorage.getItem('adminContent');
+    if (stored) {
+      return JSON.parse(stored);
+    }
+  } catch (error) {
+    console.error('Error loading from localStorage:', error);
+  }
+  return null;
+};
+
+// Сохранение данных в localStorage
+const saveToStorage = (state: ContentState) => {
+  try {
+    localStorage.setItem('adminContent', JSON.stringify({
+      texts: state.texts,
+      images: state.images,
+      blocks: state.blocks,
+    }));
+  } catch (error) {
+    console.error('Error saving to localStorage:', error);
+  }
+};
+
 interface TextContent {
   id: string;
   key: string;
@@ -32,7 +58,7 @@ interface ContentState {
   error: string | null;
 }
 
-const initialState: ContentState = {
+const defaultState: ContentState = {
   texts: [
     { id: '1', key: 'hero_title', value: 'Бухгалтерские услуги для вашего бизнеса', section: 'hero' },
     { id: '2', key: 'hero_subtitle', value: 'Профессиональный бухгалтерский учет и консалтинг', section: 'hero' },
@@ -57,6 +83,13 @@ const initialState: ContentState = {
   error: null,
 };
 
+// Загружаем сохраненные данные или используем значения по умолчанию
+const storedData = loadFromStorage();
+const initialState: ContentState = storedData ? {
+  ...defaultState,
+  ...storedData,
+} : defaultState;
+
 const contentSlice = createSlice({
   name: 'content',
   initialState,
@@ -66,6 +99,7 @@ const contentSlice = createSlice({
       const text = state.texts.find(t => t.id === action.payload.id);
       if (text) {
         text.value = action.payload.value;
+        saveToStorage(state);
       }
     },
     addText: (state, action: PayloadAction<Omit<TextContent, 'id'>>) => {
@@ -74,9 +108,11 @@ const contentSlice = createSlice({
         id: Date.now().toString(),
       };
       state.texts.push(newText);
+      saveToStorage(state);
     },
     deleteText: (state, action: PayloadAction<string>) => {
       state.texts = state.texts.filter(t => t.id !== action.payload);
+      saveToStorage(state);
     },
 
     // Изображения
@@ -84,6 +120,7 @@ const contentSlice = createSlice({
       const image = state.images.find(img => img.id === action.payload.id);
       if (image) {
         Object.assign(image, action.payload.updates);
+        saveToStorage(state);
       }
     },
     addImage: (state, action: PayloadAction<Omit<ImageContent, 'id'>>) => {
@@ -92,9 +129,11 @@ const contentSlice = createSlice({
         id: Date.now().toString(),
       };
       state.images.push(newImage);
+      saveToStorage(state);
     },
     deleteImage: (state, action: PayloadAction<string>) => {
       state.images = state.images.filter(img => img.id !== action.payload);
+      saveToStorage(state);
     },
 
     // Блоки
@@ -102,6 +141,7 @@ const contentSlice = createSlice({
       const block = state.blocks.find(b => b.id === action.payload.id);
       if (block) {
         Object.assign(block, action.payload.updates);
+        saveToStorage(state);
       }
     },
     addBlock: (state, action: PayloadAction<Omit<Block, 'id'>>) => {
@@ -110,9 +150,11 @@ const contentSlice = createSlice({
         id: Date.now().toString(),
       };
       state.blocks.push(newBlock);
+      saveToStorage(state);
     },
     deleteBlock: (state, action: PayloadAction<string>) => {
       state.blocks = state.blocks.filter(b => b.id !== action.payload);
+      saveToStorage(state);
     },
     reorderBlocks: (state, action: PayloadAction<{ blockIds: string[] }>) => {
       const { blockIds } = action.payload;
@@ -122,6 +164,7 @@ const contentSlice = createSlice({
           block.order = index + 1;
         }
       });
+      saveToStorage(state);
     },
 
     // Статус
