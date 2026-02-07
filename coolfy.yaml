@@ -1,0 +1,22 @@
+name: buhweb
+services:
+  - type: web
+    name: buhweb
+    env: docker
+    repo: https://github.com/yourusername/buhweb.git
+    plan: free
+    region: fra
+    buildCommand: "npm run build"
+    outputDir: dist
+    nodeVersion: 18
+    installCommand: "npm install"
+    startCommand: "npm run preview"
+    envVars:
+      NODE_ENV: production
+      VITE_API_URL: https://your-api-domain.com
+    ports:
+      - port: 3000
+        protocol: http
+    healthCheckPath: /
+    autoDeploy: true
+    zeroDowntime: true
