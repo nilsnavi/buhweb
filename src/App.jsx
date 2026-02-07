@@ -12,6 +12,7 @@ import Reviews from './components/Reviews.jsx'
 import FAQ from './components/FAQ.jsx'
 import Contact from './components/Contact.jsx'
 import Footer from './components/Footer.jsx'
+import Partners from './components/Partners.jsx'
 import PWAInstaller from './components/PWAInstaller.jsx'
 import FloatingButtons from './components/FloatingButtons.jsx'
 import { NotificationProvider } from './components/NotificationSystem.jsx'
@@ -50,6 +51,7 @@ function App() {
                     <Pricing />
                     <Reviews />
                     <FAQ />
+                    <Partners />
                     <Contact />
                   </main>
                   <Footer />

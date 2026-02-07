@@ -1,6 +1,17 @@
 import React from 'react'
 import { COMPANY_INFO } from '../constants'
 
+const navItems = [
+  { name: 'Услуги', href: '#services' },
+  { name: 'Возможности', href: '#features' },
+  { name: 'Калькулятор', href: '#calculator' },
+  { name: 'Тарифы', href: '#pricing' },
+  { name: 'Отзывы', href: '#reviews' },
+  { name: 'FAQ', href: '#faq' },
+  { name: 'Партнёры', href: '#partners' },
+  { name: 'Контакты', href: '#contact' },
+];
+
 const Header = () => {
   return (
     <header className="header">
@@ -11,21 +22,11 @@ const Header = () => {
             <span className="logo-text">{COMPANY_INFO.name}</span>
           </div>
           <nav className="nav">
-            <a href="#services" className="nav-link">
-              Услуги
-            </a>
-            <a href="#features" className="nav-link">
-              Преимущества
-            </a>
-            <a href="#pricing" className="nav-link">
-              Цены
-            </a>
-            <a href="#reviews" className="nav-link">
-              Отзывы
-            </a>
-            <a href="#contact" className="nav-link">
-              Контакты
-            </a>
+            {navItems.map((item, index) => (
+              <a key={index} href={item.href} className="nav-link">
+                {item.name}
+              </a>
+            ))}
           </nav>
           <div className="header-contact">
             <span className="phone">{COMPANY_INFO.phone}</span>

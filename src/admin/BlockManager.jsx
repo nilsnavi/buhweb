@@ -18,7 +18,7 @@ const BlockManager = () => {
     content: {},
   });
 
-  const blockTypes = ['text', 'image', 'hero', 'services', 'features', 'calculator', 'pricing', 'reviews', 'faq', 'contact'];
+  const blockTypes = ['text', 'image', 'hero', 'services', 'features', 'calculator', 'pricing', 'reviews', 'faq', 'partners', 'contact'];
   const sections = [...new Set(blocks.map(block => block.section))];
   
   const filteredBlocks = blocks.filter(block => {

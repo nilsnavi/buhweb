@@ -43,7 +43,7 @@ interface ImageContent {
 
 interface Block {
   id: string;
-  type: 'text' | 'image' | 'hero' | 'services' | 'features' | 'calculator' | 'pricing' | 'reviews' | 'faq' | 'contact';
+  type: 'text' | 'image' | 'hero' | 'services' | 'features' | 'calculator' | 'pricing' | 'reviews' | 'faq' | 'partners' | 'contact';
   content: any;
   section: string;
   order: number;
@@ -77,7 +77,8 @@ const defaultState: ContentState = {
     { id: '5', type: 'pricing', content: {}, section: 'pricing', order: 5, visible: true },
     { id: '6', type: 'reviews', content: {}, section: 'reviews', order: 6, visible: true },
     { id: '7', type: 'faq', content: {}, section: 'faq', order: 7, visible: true },
-    { id: '8', type: 'contact', content: {}, section: 'contact', order: 8, visible: true },
+    { id: '8', type: 'partners', content: {}, section: 'partners', order: 8, visible: true },
+    { id: '9', type: 'contact', content: {}, section: 'contact', order: 9, visible: true },
   ],
   loading: false,
   error: null,
