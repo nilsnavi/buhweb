@@ -23,6 +23,8 @@ import TextManager from './admin/TextManager.jsx'
 import ImageManager from './admin/ImageManager.jsx'
 import BlockManager from './admin/BlockManager.jsx'
 import './styles/admin.css'
+import './styles/business.css'
+import './styles/components-business.css'
 
 function App() {
   return (
