@@ -261,60 +261,70 @@
 
 /* Partners секция */
 .partners {
-  background: var(--neutral-light);
+  background: var(--slate-50);
+  padding: 6rem 0;
 }
 
 .partner-card {
-  background: var(--white);
-  border-radius: 16px;
-  padding: 30px;
-  box-shadow: var(--shadow-medium);
-  border: 1px solid var(--border);
-  transition: all 0.3s ease;
+  background: var(--slate-0);
+  border-radius: var(--border-radius-xl);
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--slate-200);
+  transition: all var(--transition-medium);
 }
 
 .partner-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--navy-200);
 }
 
 .partner-logo {
-  background: var(--primary-dark);
-  color: var(--white);
+  background: linear-gradient(135deg, var(--navy-700), var(--navy-800));
+  color: var(--slate-50);
+  border-radius: var(--border-radius-lg);
 }
 
 .partner-name {
-  color: var(--primary-dark);
+  color: var(--navy-800);
+  font-weight: 600;
 }
 
 .partner-website {
-  color: var(--primary-medium);
+  color: var(--navy-600);
 }
 
 .partner-website:hover {
-  color: var(--accent);
+  color: var(--accent-500);
 }
 
 .product-item {
-  background: var(--neutral-light);
-  border: 1px solid var(--border);
+  background: var(--slate-100);
+  border: 1px solid var(--slate-200);
+  border-radius: var(--border-radius);
+  transition: all var(--transition-fast);
 }
 
 .product-item:hover {
-  background: var(--white);
+  background: var(--slate-0);
+  border-color: var(--navy-200);
 }
 
 .product-name {
-  color: var(--primary-dark);
+  color: var(--navy-800);
+  font-weight: 500;
 }
 
 .product-link {
-  background: var(--primary-medium);
-  color: var(--white);
+  background: linear-gradient(135deg, var(--navy-600), var(--navy-700));
+  color: var(--slate-50);
+  border-radius: var(--border-radius);
+  transition: all var(--transition-fast);
 }
 
 .product-link:hover {
-  background: var(--primary-dark);
+  background: linear-gradient(135deg, var(--navy-500), var(--navy-600));
 }
 
 /* Services секция */
@@ -361,14 +371,14 @@
   .hero h1 {
     font-size: 2rem;
   }
-  
+
   .feature-card,
   .pricing-card,
   .review-card,
   .partner-card {
     margin-bottom: 20px;
   }
-  
+
   .calculator-form,
   .contact-form {
     padding: 20px;

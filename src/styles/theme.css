@@ -1,0 +1,344 @@
+/* Контейнер для переключателя темы */
+.theme-toggle-container {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1000;
+  background: var(--card-bg);
+  border: 1px solid var(--border-primary);
+  border-radius: 2rem;
+  padding: 0.25rem;
+  box-shadow: var(--shadow-md);
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+[data-theme="dark"] .theme-toggle-container {
+  background: rgba(30, 41, 59, 0.9);
+}
+
+/* Переменные для светлой темы */
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-tertiary: #f1f5f9;
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-tertiary: #64748b;
+  --border-primary: #e2e8f0;
+  --border-secondary: #cbd5e1;
+  --accent-primary: #1d4ed8;
+  --accent-secondary: #2563eb;
+  --accent-hover: #1e40af;
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  --card-bg: #ffffff;
+  --input-bg: #ffffff;
+  --button-primary: #1d4ed8;
+  --button-primary-hover: #1e3a8a;
+  --button-secondary: #f1f5f9;
+  --button-secondary-hover: #e2e8f0;
+  --success: #059669;
+  --warning: #d97706;
+  --error: #dc2626;
+  --info: #2563eb;
+}
+
+/* Переменные для темной темы */
+[data-theme="dark"] {
+  --bg-primary: #020617;
+  --bg-secondary: #0f172a;
+  --bg-tertiary: #1e293b;
+  --text-primary: #f8fafc;
+  --text-secondary: #e2e8f0;
+  --text-tertiary: #cbd5e1;
+  --border-primary: #334155;
+  --border-secondary: #475569;
+  --accent-primary: #60a5fa;
+  --accent-secondary: #93c5fd;
+  --accent-hover: #3b82f6;
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.25);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.3);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4);
+  --card-bg: #1e293b;
+  --input-bg: #334155;
+  --button-primary: #60a5fa;
+  --button-primary-hover: #93c5fd;
+  --button-secondary: #334155;
+  --button-secondary-hover: #475569;
+  --success: #34d399;
+  --warning: #fbbf24;
+  --error: #f87171;
+  --info: #60a5fa;
+}
+
+/* Стили для переключателя темы */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: var(--button-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.theme-toggle:hover {
+  background: var(--button-secondary-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.theme-toggle:active {
+  transform: translateY(0);
+}
+
+.theme-toggle-slider {
+  position: relative;
+  width: 2.5rem;
+  height: 1.25rem;
+  background: var(--border-secondary);
+  border-radius: 1rem;
+  transition: background 0.3s ease;
+}
+
+.theme-toggle-icon {
+  position: absolute;
+  top: 50%;
+  left: 0.125rem;
+  transform: translateY(-50%);
+  width: 1rem;
+  height: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-primary);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  color: white;
+}
+
+[data-theme="dark"] .theme-toggle-icon {
+  left: 1.375rem;
+}
+
+.theme-toggle-label {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+/* Анимация перехода между темами */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Отключение анимаций для пользователей с предпочтением reduced motion */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .theme-toggle-slider,
+  .theme-toggle-icon {
+    transition: none !important;
+  }
+}
+
+/* Темная тема для основных компонентов */
+[data-theme="dark"] body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .container {
+  background: var(--bg-primary);
+}
+
+[data-theme="dark"] .card {
+  background: var(--card-bg);
+  border-color: var(--border-primary);
+}
+
+[data-theme="dark"] .btn-primary {
+  background: var(--button-primary);
+  color: white;
+}
+
+[data-theme="dark"] .btn-primary:hover {
+  background: var(--button-primary-hover);
+}
+
+[data-theme="dark"] .btn-secondary {
+  background: var(--button-secondary);
+  color: var(--text-primary);
+  border-color: var(--border-primary);
+}
+
+[data-theme="dark"] .btn-secondary:hover {
+  background: var(--button-secondary-hover);
+}
+
+[data-theme="dark"] input,
+[data-theme="dark"] textarea,
+[data-theme="dark"] select {
+  background: var(--input-bg);
+  color: var(--text-primary);
+  border-color: var(--border-primary);
+}
+
+[data-theme="dark"] .form-control:focus {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Темная тема для навигации */
+[data-theme="dark"] .header {
+  background: var(--bg-secondary);
+  border-bottom-color: var(--border-primary);
+}
+
+[data-theme="dark"] .footer {
+  background: var(--bg-secondary);
+  border-top-color: var(--border-primary);
+}
+
+/* Темная тема для секций */
+[data-theme="dark"] .hero {
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+}
+
+[data-theme="dark"] .section {
+  background: var(--bg-primary);
+}
+
+/* Темная тема для калькулятора */
+[data-theme="dark"] .calculator {
+  background: var(--bg-primary);
+}
+
+[data-theme="dark"] .calculator-form {
+  background: var(--card-bg);
+  border-color: var(--border-primary);
+}
+
+[data-theme="dark"] .calculator-result {
+  background: var(--card-bg);
+  border-color: var(--border-primary);
+}
+
+/* Темная тема для тарифов */
+[data-theme="dark"] .pricing-card {
+  background: var(--card-bg);
+  border-color: var(--border-primary);
+}
+
+[data-theme="dark"] .pricing-card.popular {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 2px var(--accent-primary);
+}
+
+/* Темная тема для отзывов */
+[data-theme="dark"] .review-card {
+  background: var(--card-bg);
+  border-color: var(--border-primary);
+}
+
+/* Темная тема для FAQ */
+[data-theme="dark"] .faq-item {
+  background: var(--card-bg);
+  border-color: var(--border-primary);
+}
+
+/* Темная тема для контактной формы */
+[data-theme="dark"] .contact-form {
+  background: var(--card-bg);
+  border-color: var(--border-primary);
+}
+
+/* Темная тема для уведомлений */
+[data-theme="dark"] .notification {
+  background: var(--card-bg);
+  border-color: var(--border-primary);
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .notification.success {
+  background: rgba(16, 185, 129, 0.1);
+  border-color: var(--success);
+  color: var(--success);
+}
+
+[data-theme="dark"] .notification.error {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: var(--error);
+  color: var(--error);
+}
+
+[data-theme="dark"] .notification.warning {
+  background: rgba(245, 158, 11, 0.1);
+  border-color: var(--warning);
+  color: var(--warning);
+}
+
+[data-theme="dark"] .notification.info {
+  background: rgba(59, 130, 246, 0.1);
+  border-color: var(--info);
+  color: var(--info);
+}
+
+/* Темная тема для плавающих кнопок */
+[data-theme="dark"] .floating-button {
+  background: var(--accent-primary);
+  color: white;
+}
+
+[data-theme="dark"] .floating-button:hover {
+  background: var(--accent-hover);
+}
+
+/* Темная тема для спиннеров загрузки */
+[data-theme="dark"] .loading-spinner {
+  border-color: var(--border-primary);
+  border-top-color: var(--accent-primary);
+}
+
+/* Темная тема для модальных окон */
+[data-theme="dark"] .modal {
+  background: var(--card-bg);
+  border-color: var(--border-primary);
+}
+
+[data-theme="dark"] .modal-overlay {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+/* Темная тема для тултипов */
+[data-theme="dark"] .tooltip {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  border-color: var(--border-primary);
+}
+
+/* Мобильная адаптация темной темы */
+@media (max-width: 768px) {
+  .theme-toggle-label {
+    display: none;
+  }
+
+  .theme-toggle {
+    padding: 0.5rem;
+    min-width: auto;
+  }
+}

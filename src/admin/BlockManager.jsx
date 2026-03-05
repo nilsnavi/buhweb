@@ -20,7 +20,7 @@ const BlockManager = () => {
 
   const blockTypes = ['text', 'image', 'hero', 'services', 'features', 'calculator', 'pricing', 'reviews', 'faq', 'partners', 'contact'];
   const sections = [...new Set(blocks.map(block => block.section))];
-  
+
   const filteredBlocks = blocks.filter(block => {
     const matchesSection = filterSection === 'all' || block.section === filterSection;
     const matchesType = filterType === 'all' || block.type === filterType;
@@ -32,6 +32,8 @@ const BlockManager = () => {
     if (field === 'order') {
       updates[field] = Number.parseInt(value);
     } else if (field === 'visible') {
+      updates[field] = value;
+    } else if (field === 'content') {
       updates[field] = value;
     } else {
       updates[field] = value;
@@ -72,10 +74,10 @@ const BlockManager = () => {
       const newOrder = [...filteredBlocks];
       const draggedIndex = newOrder.findIndex(b => b.id === draggedBlock.id);
       const targetIndex = newOrder.findIndex(b => b.id === targetBlock.id);
-      
+
       newOrder.splice(draggedIndex, 1);
       newOrder.splice(targetIndex, 0, draggedBlock);
-      
+
       const blockIds = newOrder.map(b => b.id);
       dispatch(reorderBlocks({ blockIds }));
     }
@@ -93,7 +95,7 @@ const BlockManager = () => {
     <div className="block-manager">
       <div className="manager-header">
         <h2>🧱 Управление блоками</h2>
-        <button 
+        <button
           className="add-btn"
           onClick={() => setShowAddForm(true)}
         >
@@ -113,7 +115,7 @@ const BlockManager = () => {
             <option key={section} value={section}>{section}</option>
           ))}
         </select>
-        
+
         <select
           value={filterType}
           onChange={(e) => setFilterType(e.target.value)}
@@ -135,7 +137,7 @@ const BlockManager = () => {
             <select
               id="block-type"
               value={newBlock.type}
-              onChange={(e) => setNewBlock({...newBlock, type: e.target.value})}
+              onChange={(e) => setNewBlock({ ...newBlock, type: e.target.value })}
             >
               {blockTypes.map(type => (
                 <option key={type} value={type}>{type}</option>
@@ -148,7 +150,7 @@ const BlockManager = () => {
               id="block-section"
               type="text"
               value={newBlock.section}
-              onChange={(e) => setNewBlock({...newBlock, section: e.target.value})}
+              onChange={(e) => setNewBlock({ ...newBlock, section: e.target.value })}
               placeholder="Например: main"
             />
           </div>
@@ -158,7 +160,7 @@ const BlockManager = () => {
               id="block-order"
               type="number"
               value={newBlock.order}
-              onChange={(e) => setNewBlock({...newBlock, order: Number.parseInt(e.target.value)})}
+              onChange={(e) => setNewBlock({ ...newBlock, order: Number.parseInt(e.target.value) })}
               min="1"
             />
           </div>
@@ -167,7 +169,7 @@ const BlockManager = () => {
               <input
                 type="checkbox"
                 checked={newBlock.visible}
-                onChange={(e) => setNewBlock({...newBlock, visible: e.target.checked})}
+                onChange={(e) => setNewBlock({ ...newBlock, visible: e.target.checked })}
               />
               Видимый
             </label>
@@ -182,8 +184,8 @@ const BlockManager = () => {
       {/* Список блоков */}
       <div className="blocks-list">
         {filteredBlocks.map((block, index) => (
-          <div 
-            key={block.id} 
+          <div
+            key={block.id}
             className={`block-item ${!block.visible ? 'hidden' : ''} ${draggedBlock?.id === block.id ? 'dragging' : ''}`}
             draggable
             onDragStart={() => handleDragStart(block)}
@@ -203,19 +205,19 @@ const BlockManager = () => {
                 </div>
               </div>
               <div className="block-actions">
-                <button 
+                <button
                   onClick={() => toggleVisibility(block.id)}
                   className={`visibility-btn ${block.visible ? 'hide' : 'show'}`}
                 >
                   {block.visible ? '👁️‍🗨️' : '👁️'}
                 </button>
-                <button 
+                <button
                   onClick={() => setEditingId(editingId === block.id ? null : block.id)}
                   className="edit-btn"
                 >
                   ✏️
                 </button>
-                <button 
+                <button
                   onClick={() => handleDelete(block.id)}
                   className="delete-btn"
                 >
@@ -223,7 +225,7 @@ const BlockManager = () => {
                 </button>
               </div>
             </div>
-            
+
             {editingId === block.id && (
               <div className="block-edit">
                 <div className="edit-form">
@@ -254,8 +256,78 @@ const BlockManager = () => {
                       Видимый
                     </label>
                   </div>
+
+                  {/* Редактор контента для кастомных блоков */}
+                  {(block.type === 'text' || block.type === 'image') && (
+                    <div className="content-editor">
+                      <h4>📝 Контент блока</h4>
+
+                      {block.type === 'text' && (
+                        <>
+                          <div className="form-row">
+                            <label>Заголовок:</label>
+                            <input
+                              type="text"
+                              value={block.content?.title || ''}
+                              onChange={(e) => handleUpdate(block.id, 'content', { ...block.content, title: e.target.value })}
+                              placeholder="Заголовок блока"
+                            />
+                          </div>
+                          <div className="form-row">
+                            <label>Текст (HTML):</label>
+                            <textarea
+                              value={block.content?.text || ''}
+                              onChange={(e) => handleUpdate(block.id, 'content', { ...block.content, text: e.target.value })}
+                              placeholder="<p>Ваш текст здесь...</p>"
+                              rows="5"
+                            />
+                          </div>
+                          <div className="form-row">
+                            <label>Фон:</label>
+                            <input
+                              type="color"
+                              value={block.content?.background || '#ffffff'}
+                              onChange={(e) => handleUpdate(block.id, 'content', { ...block.content, background: e.target.value })}
+                            />
+                          </div>
+                        </>
+                      )}
+
+                      {block.type === 'image' && (
+                        <>
+                          <div className="form-row">
+                            <label>URL изображения:</label>
+                            <input
+                              type="text"
+                              value={block.content?.src || ''}
+                              onChange={(e) => handleUpdate(block.id, 'content', { ...block.content, src: e.target.value })}
+                              placeholder="https://example.com/image.jpg"
+                            />
+                          </div>
+                          <div className="form-row">
+                            <label>Alt текст:</label>
+                            <input
+                              type="text"
+                              value={block.content?.alt || ''}
+                              onChange={(e) => handleUpdate(block.id, 'content', { ...block.content, alt: e.target.value })}
+                              placeholder="Описание изображения"
+                            />
+                          </div>
+                          <div className="form-row">
+                            <label>Ширина (%):</label>
+                            <input
+                              type="text"
+                              value={block.content?.width || '100%'}
+                              onChange={(e) => handleUpdate(block.id, 'content', { ...block.content, width: e.target.value })}
+                            />
+                          </div>
+                        </>
+                      )}
+                    </div>
+                  )}
+
                   <div className="form-actions">
-                    <button 
+                    <button
                       onClick={() => setEditingId(null)}
                       className="save-btn"
                     >

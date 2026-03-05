@@ -75,9 +75,9 @@ export default ({ mode }) => {
       },
     },
     server: {
-      port: 3000,
+      port: 5173,
       open: true,
-      host: true,
+      host: '127.0.0.1',
       proxy: {
         '/api': {
           target: env.VITE_API_URL || 'http://localhost:5000',
@@ -85,6 +85,25 @@ export default ({ mode }) => {
           rewrite: (path) => path.replace(/^\/api/, ''),
         },
       },
+      headers: {
+        // CSP заголовки для разработки
+        'Content-Security-Policy': [
+          "default-src 'self'",
+          "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
+          "style-src 'self' 'unsafe-inline'",
+          "img-src 'self' data: https:",
+          "font-src 'self' data:",
+          "connect-src 'self' https://api.example.com",
+          "frame-src 'none'",
+          "object-src 'none'",
+          "base-uri 'self'",
+          "form-action 'self'"
+        ].join('; '),
+        'X-Frame-Options': 'DENY',
+        'X-Content-Type-Options': 'nosniff',
+        'Referrer-Policy': 'strict-origin-when-cross-origin',
+        'Permissions-Policy': 'camera=(), microphone=(), geolocation=()'
+      }
     },
     build: {
       outDir: 'dist',

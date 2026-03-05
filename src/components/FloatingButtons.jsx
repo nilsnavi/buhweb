@@ -20,27 +20,30 @@ const FloatingButtons = () => {
   }
 
   return (
-    <div className="floating-buttons">
+    <div className="floating-buttons" role="region" aria-label="Быстрые действия">
       <button
         className="floating-btn call-btn btn-success btn-medium btn-pulse"
         onClick={handleCallClick}
         title="Позвонить"
+        aria-label="Позвонить по телефону"
       >
-        <i className="fas fa-phone"></i>
+        <i className="fas fa-phone" aria-hidden="true"></i>
       </button>
       <button
         className="floating-btn whatsapp-btn btn-primary btn-medium btn-glow"
         onClick={handleWhatsAppClick}
-        title="WhatsApp"
+        title="Написать в WhatsApp"
+        aria-label="Написать в WhatsApp"
       >
-        <i className="fab fa-whatsapp"></i>
+        <i className="fab fa-whatsapp" aria-hidden="true"></i>
       </button>
       <button
         className="floating-btn calculator-btn btn-secondary btn-medium btn-pulse"
         onClick={handleCalculatorClick}
-        title="Калькулятор"
+        title="Открыть калькулятор"
+        aria-label="Перейти к калькулятору стоимости"
       >
-        <i className="fas fa-calculator"></i>
+        <i className="fas fa-calculator" aria-hidden="true"></i>
       </button>
     </div>
   )

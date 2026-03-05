@@ -1,0 +1,8 @@
+<svg width="120" height="40" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="120" height="40" rx="8" fill="#0A2463"/>
+  <path d="M15 12H20V28H15V12Z" fill="white"/>
+  <path d="M22 12H27V28H22V12Z" fill="white"/>
+  <path d="M29 12H34V28H29V12Z" fill="white"/>
+  <path d="M36 12H41V28H36V12Z" fill="white"/>
+  <text x="50" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Т БАНК</text>
+</svg>

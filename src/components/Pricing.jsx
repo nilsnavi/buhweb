@@ -6,7 +6,7 @@ const Pricing = () => {
     <section id="pricing" className="pricing">
       <div className="container">
         <h2 className="section-title">Тарифы и цены</h2>
-        <p className="section-subtitle">
+        <p className="section-subtitle" style={{ marginBottom: '3rem' }}>
           Выберите подходящий тариф для вашего бизнеса
         </p>
         <div className="pricing-grid">
@@ -30,8 +30,11 @@ const Pricing = () => {
                   </li>
                 ))}
               </ul>
-              <button className="btn-primary btn-large btn-glow btn-icon">
-                <span className="icon">⭐</span>
+              <button
+                className="btn-primary btn-large btn-glow btn-icon"
+                aria-label={`Выбрать тариф: ${plan.name}`}
+              >
+                <span className="icon" aria-hidden="true">⭐</span>
                 Выбрать тариф
               </button>
             </div>
@@ -45,4 +48,4 @@ const Pricing = () => {
   )
 }
 
-export default Pricing
+export default React.memo(Pricing)

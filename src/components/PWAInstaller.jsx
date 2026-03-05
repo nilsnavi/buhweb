@@ -52,8 +52,10 @@ const PWAInstaller = () => {
         <button
           onClick={() => setShowInstallButton(false)}
           className="btn-ghost btn-small"
+          aria-label="Закрыть предложение установки"
+          title="Закрыть"
         >
-          <i className="fas fa-times"></i>
+          <i className="fas fa-times" aria-hidden="true"></i>
         </button>
       </div>
     </div>

@@ -54,17 +54,28 @@
 }
 
 .partner-logo {
-  font-size: 3rem;
-  margin-right: 20px;
   width: 80px;
   height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: transparent;
   border-radius: 16px;
   flex-shrink: 0;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
 }
+
+.partner-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 8px;
+}
+
+ .partner-logo--tbank img {
+   filter: brightness(2.95) saturate(1.40) contrast(1.90);
+ }
 
 .partner-name {
   font-size: 1.5rem;

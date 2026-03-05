@@ -1,0 +1,230 @@
+/* Стили для переключателя языка */
+.language-selector {
+  position: relative;
+  display: inline-block;
+}
+
+.language-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: var(--button-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  min-width: 120px;
+  justify-content: space-between;
+}
+
+.language-button:hover {
+  background: var(--button-secondary-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.language-button:active {
+  transform: translateY(0);
+}
+
+.language-flag {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.language-name {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.language-arrow {
+  transition: transform 0.3s ease;
+  color: var(--text-secondary);
+}
+
+.language-selector:hover .language-arrow {
+  transform: rotate(180deg);
+}
+
+.language-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: 0.25rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border-primary);
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-lg);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  min-width: 100%;
+  overflow: hidden;
+}
+
+.language-dropdown.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.language-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  text-align: left;
+  position: relative;
+}
+
+.language-option:hover {
+  background: var(--button-secondary-hover);
+}
+
+.language-option.active {
+  background: var(--accent-primary);
+  color: white;
+}
+
+.language-option.active:hover {
+  background: var(--accent-hover);
+}
+
+.language-check {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--accent-primary);
+}
+
+.language-option.active .language-check {
+  color: white;
+}
+
+/* Контейнер для переключателей языка и темы */
+.controls-container {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  z-index: 1000;
+}
+
+.controls-container .theme-toggle-container {
+  position: static;
+  background: transparent;
+  border: none;
+  padding: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+  .language-name {
+    display: none;
+  }
+  
+  .language-button {
+    padding: 0.5rem;
+    min-width: auto;
+    justify-content: center;
+  }
+  
+  .language-dropdown {
+    right: 0;
+    left: auto;
+  }
+  
+  .controls-container {
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+}
+
+/* Темная тема для переключателя языка */
+[data-theme="dark"] .language-button {
+  background: var(--button-secondary);
+  border-color: var(--border-primary);
+}
+
+[data-theme="dark"] .language-button:hover {
+  background: var(--button-secondary-hover);
+}
+
+[data-theme="dark"] .language-dropdown {
+  background: var(--card-bg);
+  border-color: var(--border-primary);
+}
+
+[data-theme="dark"] .language-option:hover {
+  background: var(--button-secondary-hover);
+}
+
+[data-theme="dark"] .language-option.active {
+  background: var(--accent-primary);
+}
+
+/* Анимация появления */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.language-dropdown.show {
+  animation: slideDown 0.3s ease;
+}
+
+/* Фокус стили */
+.language-button:focus,
+.language-option:focus {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
+/* Высокий контраст режим */
+@media (prefers-contrast: high) {
+  .language-button {
+    border-width: 2px;
+  }
+  
+  .language-option.active {
+    border: 2px solid var(--accent-primary);
+  }
+}
+
+/* Режим движения */
+@media (prefers-reduced-motion: reduce) {
+  .language-button,
+  .language-option,
+  .language-dropdown {
+    transition: none;
+  }
+  
+  .language-arrow {
+    transition: none;
+  }
+}

@@ -1,0 +1,52 @@
+User-agent: *
+Allow: /
+
+# Основные страницы
+Allow: /#services
+Allow: /#calculator
+Allow: /#pricing
+Allow: /#reviews
+Allow: /#faq
+Allow: /#contact
+Allow: /#features
+Allow: /#partners
+
+# Запретить доступ к админ-панели
+Disallow: /admin/
+Disallow: /admin/*
+Disallow: /admin/texts
+Disallow: /admin/images
+Disallow: /admin/blocks
+Disallow: /admin/dashboard
+
+# Запретить доступ к системным файлам
+Disallow: /src/
+Disallow: /node_modules/
+Disallow: /dist/
+Disallow: /.git/
+Disallow: /package.json
+Disallow: /package-lock.json
+Disallow: /vite.config.js
+Disallow: /tsconfig.json
+Disallow: /.env*
+
+# Запретить доступ к временным файлам
+Disallow: /*.tmp
+Disallow: /*.temp
+Disallow: /temp/
+Disallow: /tmp/
+
+# Запретить доступ к API (если есть)
+Disallow: /api/
+Disallow: /api/*
+
+# Запретить доступ к файлам конфигурации
+Disallow: /.htaccess
+Disallow: /robots.txt
+Disallow: /sitemap.xml
+
+# Указание на карту сайта
+Sitemap: https://buhuchetonline.ru/sitemap.xml
+
+# Время кэширования для поисковых роботов
+Crawl-delay: 1

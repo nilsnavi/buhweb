@@ -743,6 +743,68 @@
   gap: 15px;
 }
 
+.content-editor {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  margin-top: 15px;
+}
+
+.content-editor h4 {
+  margin: 0 0 15px 0;
+  color: #333;
+  font-size: 1rem;
+}
+
+.content-editor .form-row {
+  margin-bottom: 15px;
+}
+
+.content-editor .form-row:last-child {
+  margin-bottom: 0;
+}
+
+.content-editor label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.content-editor input[type="text"],
+.content-editor input[type="number"],
+.content-editor textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  transition: border-color 0.3s ease;
+}
+
+.content-editor input[type="text"]:focus,
+.content-editor input[type="number"]:focus,
+.content-editor textarea:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.content-editor textarea {
+  resize: vertical;
+  min-height: 100px;
+  font-family: monospace;
+}
+
+.content-editor input[type="color"] {
+  width: 60px;
+  height: 40px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
 .form-row {
   display: flex;
   align-items: center;

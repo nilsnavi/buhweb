@@ -2,14 +2,22 @@
 
 :root {
   /* ПРОФЕССИОНАЛЬНАЯ ЦВЕТОВАЯ ПАЛИТРА */
-  --primary-dark: #0a2463;      /* Глубокий синий (как у ведущих консалтинговых firms) */
-  --primary-medium: #1e3a8a;    /* Профессиональный синий */
-  --primary-light: #3b82f6;     /* Светлый синий для акцентов */
-  --neutral-dark: #1e293b;      /* Темно-серый для текста */
-  --neutral-medium: #475569;    /* Серый для второстепенного текста */
-  --neutral-light: #f1f5f9;     /* Светло-серый фон */
-  --accent: #10b981;            /* Сдержанная бирюза вместо оранжевого (профессиональный акцент) */
-  --accent-hover: #059669;      /* Темнее для ховер-эффектов */
+  --primary-dark: #0a2463;
+  /* Глубокий синий (как у ведущих консалтинговых firms) */
+  --primary-medium: #1e3a8a;
+  /* Профессиональный синий */
+  --primary-light: #3b82f6;
+  /* Светлый синий для акцентов */
+  --neutral-dark: #1e293b;
+  /* Темно-серый для текста */
+  --neutral-medium: #475569;
+  /* Серый для второстепенного текста */
+  --neutral-light: #f1f5f9;
+  /* Светло-серый фон */
+  --accent: #10b981;
+  /* Сдержанная бирюза вместо оранжевого (профессиональный акцент) */
+  --accent-hover: #059669;
+  /* Темнее для ховер-эффектов */
   --white: #ffffff;
   --shadow-light: 0 4px 6px rgba(59, 130, 246, 0.08);
   --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
@@ -156,14 +164,15 @@ body {
 .hero-title {
   font-size: 3.5rem;
   line-height: 1.2;
-  color: var(--primary-dark);
+  color: #ffffff !important;
   margin-bottom: 1.5rem;
   font-weight: 800;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .hero-subtitle {
   font-size: 1.4rem;
-  color: var(--neutral-medium);
+  color: #e2e8f0 !important;
   margin-bottom: 2rem;
   max-width: 650px;
 }
@@ -395,11 +404,11 @@ body {
     flex-direction: column;
     text-align: center;
   }
-  
+
   .hero-title {
     font-size: 2.8rem;
   }
-  
+
   .section-title {
     font-size: 2.2rem;
   }
@@ -409,15 +418,15 @@ body {
   .nav-links {
     display: none;
   }
-  
+
   .hero-title {
     font-size: 2.2rem;
   }
-  
+
   .hero-subtitle {
     font-size: 1.1rem;
   }
-  
+
   .section-title {
     font-size: 1.8rem;
   }
